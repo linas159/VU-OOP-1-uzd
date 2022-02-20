@@ -1,0 +1,3 @@
+juozas kirmis 3 2 5 5 8
+kriupis valdone 4 2 5 5 9 8
+abrikosas juozas 2 2 5 8
