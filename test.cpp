@@ -10,6 +10,7 @@ struct studentas
     vector <int> nd;
     int egz;
     float gal;
+    float galmed;
 };
 
 void ivestis(int &k, vector <studentas> &stud, bool &ar)
@@ -52,11 +53,11 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
             }
             cout<<"Pazymiai: ";
             int a;
-            float vid=0;
+            float vid=0,med;
             for (int j=0;j<stud[i].n;j++)
             {
                 cin>>a;
-                if (a==0)
+                if (a==0 || a>10)
                 {
                     cout<<"Ivesta klaidingai"<<endl;
                     ar=false;
@@ -69,6 +70,15 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
             {
                 break;
             }
+            sort(stud[i].nd.begin(), stud[i].nd.end());
+            if (stud[i].n%2==0)
+            {
+                med=(stud[i].nd[stud[i].n/2]+stud[i].nd[stud[i].n/2-1])/2.0;
+            }
+            else
+            {
+                med=stud[i].nd[stud[i].n/2];
+            }
             vid=vid/stud[i].n;
             cout<<"Egzamino rezultatas: ";
             cin>>stud[i].egz;
@@ -79,6 +89,8 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
                 break;
             }
             stud[i].gal=vid*0.4+stud[i].egz*0.6;
+            stud[i].galmed=med*0.4+stud[i].egz*0.6;
+
     }
     }
     
@@ -86,10 +98,10 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
 
 void isvestis(int k, vector <studentas> &stud)
 {
-    cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)" << endl;
+    cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
     for (int i=0;i<k;i++)
     {
-        cout << "|"<< left << setw(20) << stud[i].vard << "|" << left << setw(20) << stud[i].pavard << "|" << left << setw(20) << stud[i].gal<< endl;
+        cout << "|"<< left << setw(20) << stud[i].vard << "|" << left << setw(20) << stud[i].pavard << "|" << left << setw(20) << stud[i].gal<< "|" << left << setw(20) << stud[i].galmed<< endl;
     }
 }
 
