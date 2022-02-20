@@ -42,26 +42,23 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
                 ar=false;
                 break;
             }
-            cout<<"Pazymiai (Noredami baigti ivedineti iveskite '0'): ";
-            int a=1,kiek=0;
+            cout<<"Kiek norite sugeneruoti namu darbu pazymiu? ";
+            int kiek;
+            cin>>kiek;
             float vid=0,med;
-            while (a!=0)
-            {
-                cin>>a;
-                if (a==0)
-                {
-                    break;
-                }
-                stud[i].nd.push_back(a);
-                vid=vid+a;
-                kiek++;
-            }
             if (kiek==0)
             {
                 cout<<"Ivesta klaidingai"<<endl;
                 ar=false;
                 break;
             }
+            for (int j=0;j<kiek;j++)
+            {
+                stud[i].nd.push_back(rand()%10+1);
+                cout<<stud[i].nd[j]<<" ";
+                vid=vid+stud[i].nd[j];
+            }
+            cout<<endl;
             sort(stud[i].nd.begin(), stud[i].nd.end());
             if (kiek%2==0)
             {
@@ -73,7 +70,8 @@ void ivestis(int &k, vector <studentas> &stud, bool &ar)
             }
             vid=vid/kiek;
             cout<<"Egzamino rezultatas: ";
-            cin>>stud[i].egz;
+            stud[i].egz=rand()%10+1;
+            cout<<stud[i].egz<<endl;
             if (stud[i].egz==0)
             {
                 cout<<"Ivesta klaidingai"<<endl;
@@ -99,6 +97,7 @@ void isvestis(int k, vector <studentas> &stud)
 
 int main()
 {
+    srand(time(0));
     int k;
     vector <studentas> stud; 
     bool ar=true;
