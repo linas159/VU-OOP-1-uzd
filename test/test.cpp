@@ -14,7 +14,7 @@ struct studentas
     float galmed;
 };
 
-/*void ivestis(vector <studentas> &stud)
+void ivestisranka(vector <studentas> &stud)
 {
     int i=0;
     while (1>0)
@@ -180,7 +180,7 @@ struct studentas
         break;
     }
 
-}*/
+}
 
 int kiekpazymiu()
 {
@@ -209,15 +209,29 @@ void ivestis(vector <studentas>& stud)
         in >> stud[kiekstud].vard;
         in >> stud[kiekstud].pavard;
         int a;
+        float vid = 0, med;
         for (int i = 0; i < kieknd; i++)
         {
             in >> a;
             stud[kiekstud].nd.push_back(a);
+            vid +=a;
         }
+        sort(stud[kiekstud].nd.begin(), stud[kiekstud].nd.end());
+        if (kieknd % 2 == 0)
+        {
+            med = (stud[kiekstud].nd[kieknd / 2] + stud[kiekstud].nd[kieknd / 2 - 1]) / 2.0;
+        }
+        else
+        {
+            med = stud[kiekstud].nd[kieknd / 2];
+        }
+        vid = vid / kieknd;
         in >> stud[kiekstud].egz;
+        stud[kiekstud].gal = vid * 0.4 + stud[kiekstud].egz * 0.6;
+        stud[kiekstud].galmed = med * 0.4 + stud[kiekstud].egz * 0.6;
         kiekstud++;
     }
-    for (int i = 0; i < kiekstud; i++)
+    /*for (int i = 0; i < kiekstud; i++) //nuskaitytu duomenu isvedimas
     {
         cout << stud[i].vard << " " << stud[i].pavard << " ";
         for (int j = 0; j < kieknd; j++)
@@ -225,23 +239,33 @@ void ivestis(vector <studentas>& stud)
             cout << stud[i].nd[j] << " ";
         }
         cout << stud[i].egz << endl;
-    }
+    }*/
 }
 
-/*void isvestis(vector <studentas> stud)
+void isvestis(vector <studentas> stud)
 {
     cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
     for (int i=0;i<stud.size();i++)
     {
         cout << "|"<< left << setw(20) << stud[i].vard << "|" << left << setw(20) << stud[i].pavard << "|" << left << setw(20) << fixed << setprecision(2) << stud[i].gal<< "|" << left << setw(20) << fixed << setprecision(2) << stud[i].galmed<< endl;
     }
-}*/
+}
 
 int main()
 {
     srand(time(0));
     vector <studentas> stud;
-    ivestis(stud);
-    //isvestis(stud);
+    cout << "Ar norite duomenis ivesti ranka? (T/N)" << endl;
+    char ar;
+    cin >> ar;
+    if (ar == 't' || ar == 'T')
+    {
+        ivestisranka(stud);
+    }
+    else
+    {
+        ivestis(stud);
+    }
+    isvestis(stud);
     return 0;
 }

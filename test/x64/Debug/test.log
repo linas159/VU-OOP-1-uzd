@@ -1,3 +1,27 @@
 ﻿  test.cpp
-C:\Users\linas\OneDrive\Desktop\testavimas\test\test\test.cpp(242,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
-  test.vcxproj -> C:\Users\linas\OneDrive\Desktop\testavimas\test\x64\Debug\test.exe
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(66,62): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(70,38): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(76,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(77,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(139,68): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(143,41): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(167,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(168,35): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(222,87): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(226,47): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+          with
+          [
+              _Ty=int
+          ]
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(230,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(231,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(256,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  test.vcxproj -> C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\x64\Debug\test.exe
