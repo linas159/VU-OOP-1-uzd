@@ -225,11 +225,14 @@ void ivestis(vector <studentas>& stud)
         {
             med = stud[kiekstud].nd[kieknd / 2];
         }
+        stud[kiekstud].nd.clear();
+
         vid = vid / kieknd;
         in >> stud[kiekstud].egz;
         stud[kiekstud].gal = vid * 0.4 + stud[kiekstud].egz * 0.6;
         stud[kiekstud].galmed = med * 0.4 + stud[kiekstud].egz * 0.6;
         kiekstud++;
+        
     }
     /*for (int i = 0; i < kiekstud; i++) //nuskaitytu duomenu isvedimas
     {
@@ -242,8 +245,14 @@ void ivestis(vector <studentas>& stud)
     }*/
 }
 
+bool palyginimas(studentas& a, studentas& b)
+{
+    return a.vard < b.vard;
+}
+
 void isvestis(vector <studentas> stud)
 {
+    sort(stud.begin(), stud.end(), palyginimas);
     cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
     for (int i=0;i<stud.size();i++)
     {
