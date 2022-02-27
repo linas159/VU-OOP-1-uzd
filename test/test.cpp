@@ -2,40 +2,24 @@
 
 using namespace std;
 
+ifstream in("kursiokai.txt");
+
 struct studentas
 {
     string vard;
     string pavard;
-    int kieknd=0;
-    int* nd = new int[2];
+    vector <int> nd;
     int egz;
     float gal;
     float galmed;
 };
 
-void resize(studentas* stud, int &size) {
-    studentas* resize_arr = new studentas[size + 1];
-    for(int i = 0; i < size; i++)
-        resize_arr[i] = stud[i];
-    size++;
-    stud = resize_arr;
-    delete[] resize_arr;
-}
-
-void resize_nd(int* stud, int &size) {
-    int* resize_arr = new int[size + 1];
-    for(int i = 0; i < size; i++)
-        resize_arr[i] = stud[i];
-    size++;
-    stud = resize_arr;
-    delete[] resize_arr;
-}
-
-void ivestis(studentas* stud, int &i)
+/*void ivestis(vector <studentas> &stud)
 {
-    i=0;
+    int i=0;
     while (1>0)
     {
+        stud.push_back(studentas());
         cout<<"Iveskite varda: ";
         cin>>stud[i].vard;
         cout<<"Iveskite pavarde: ";
@@ -52,41 +36,40 @@ void ivestis(studentas* stud, int &i)
         if (ar== 't' || ar == 'T')
         {
             cout<<"Kiek norite sugeneruoti namu darbu pazymiu? ";
-            cin>>stud[i].kieknd;
+            int kiek;
+            cin>>kiek;
             while(!cin)//susiradau sprendima internete (tikrina ar ivestis yra int tipo)
             {
                 cin.clear(); // istrina fail reiksme
                 cin.ignore(numeric_limits<streamsize>::max(), '\n'); //praleidziamas ne int input'as
                 cout << "Iveskite skaiciu: ";
-                cin >> stud[i].kieknd;
+                cin >> kiek;
             }
             while (1>0)
             {
-                if(stud[i].kieknd==0)
+                if(kiek==0)
                     cout<<"Isveskite skaiciu didesni uz 0: ";
                 else break;
-                cin>>stud[i].kieknd;
+                cin>>kiek;
             }
-            int* resize_arr = new int[stud[i].kieknd];
-            stud[i].nd = resize_arr;
             float vid=0,med;
-            for (int j=0;j<stud[i].kieknd;j++)
+            for (int j=0;j<kiek;j++)
             {
-                stud[i].nd[j] = rand()%10+1;
+                stud[i].nd.push_back(rand()%10+1);
                 cout<<stud[i].nd[j]<<" ";
                 vid=vid+stud[i].nd[j];
             }
             cout<<endl;
-            sort(stud[i].nd, stud[i].nd+stud[i].kieknd);
-            if (stud[i].kieknd%2==0)
+            sort(stud[i].nd.begin(), stud[i].nd.end());
+            if (kiek%2==0)
             {
-                med=(stud[i].nd[stud[i].kieknd/2]+stud[i].nd[stud[i].kieknd/2-1])/2.0;
+                med=(stud[i].nd[kiek/2]+stud[i].nd[kiek/2-1])/2.0;
             }
             else
             {
-                med=stud[i].nd[stud[i].kieknd/2];
+                med=stud[i].nd[kiek/2];
             }
-            vid=vid/stud[i].kieknd;
+            vid=vid/kiek;
             cout<<"Egzamino rezultatas: ";
             stud[i].egz=rand()%10+1;
             cout<<stud[i].egz<<endl;
@@ -96,7 +79,7 @@ void ivestis(studentas* stud, int &i)
         else
         {
             cout<<"Iveskite studento pazymius, norint baigti iveskite 0: ";
-            int a;
+            int a, kiekpaz=0;
             float vid=0, med;
             while (1>0)
             {
@@ -115,13 +98,13 @@ void ivestis(studentas* stud, int &i)
                             cout << "Prasome ivesti skaiciu tarp [1, 10]: ";
                             cin >> a;
                         }
-                    stud[i].nd[stud[i].kieknd]=a;
-                    resize_nd(stud[i].nd, stud[i].kieknd);
+                    stud[i].nd.push_back(a);
+                    kiekpaz++;
                     vid+=a;
                 }
                 else
                 {
-                    while(stud[i].kieknd==0)
+                    while(kiekpaz==0)
                     {
                         cout << "Prasome ivesti bent viena pazymi: ";
                         cin >> a;
@@ -139,25 +122,25 @@ void ivestis(studentas* stud, int &i)
                         }
                         if (a>0 && a<=10)
                         {
-                            stud[i].nd[stud[i].kieknd]=a;
-                            resize_nd(stud[i].nd, stud[i].kieknd);
+                            stud[i].nd.push_back(a);
+                            kiekpaz++;
                             vid+=a;
                         }
-                        
+
                     }
-                    if (stud[i].kieknd!=0)
+                    if (kiekpaz!=0)
                         break;
                 }
             }
-            vid=vid/stud[i].kieknd;
-            sort(stud[i].nd, stud[i].nd+stud[i].kieknd);
-            if (stud[i].kieknd%2==0)
+            vid=vid/kiekpaz;
+            sort(stud[i].nd.begin(), stud[i].nd.end());
+            if (kiekpaz%2==0)
             {
-                med=(stud[i].nd[stud[i].kieknd/2]+stud[i].nd[stud[i].kieknd/2-1])/2.0;
+                med=(stud[i].nd[kiekpaz/2]+stud[i].nd[kiekpaz/2-1])/2.0;
             }
             else
             {
-                med=stud[i].nd[stud[i].kieknd/2];
+                med=stud[i].nd[kiekpaz/2];
             }
             cout << "Iveskite egzamino rezultata: ";
             cin>>a;
@@ -184,7 +167,7 @@ void ivestis(studentas* stud, int &i)
             stud[i].gal=vid*0.4+stud[i].egz*0.6;
             stud[i].galmed=med*0.4+stud[i].egz*0.6;
         }
-        
+        i++;
         cout<<"Ar norite ivesti nauja studenta? (T/N)";
         while (1>0)
         {
@@ -193,30 +176,72 @@ void ivestis(studentas* stud, int &i)
                 cout<<"Irasykite atitinkamai T arba N: ";
             else break;
         }
-        resize(stud,i);
         if (ar=='n' || ar=='N')
         break;
-        
-        
     }
-    
+
+}*/
+
+int kiekpazymiu()
+{
+    int i = 0;
+    string a;
+    while (true)
+    {
+        in >> a;
+        i++;
+        if (a == "Egz.")
+        {
+            break;
+        }
+    }
+    return i - 3;
 }
 
-void isvestis(studentas* stud, int i)
+void ivestis(vector <studentas>& stud)
 {
-    cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
-    for (int j=0;j<i;j++)
+    int kieknd;
+    kieknd = kiekpazymiu();
+    int kiekstud = 0;
+    while (!in.eof())
     {
-        cout << "|"<< left << setw(20) << stud[j].vard << "|" << left << setw(20) << stud[j].pavard << "|" << left << setw(20) << fixed << setprecision(2) << stud[j].gal<< "|" << left << setw(20) << fixed << setprecision(2) << stud[j].galmed<< endl;
+        stud.push_back(studentas());
+        in >> stud[kiekstud].vard;
+        in >> stud[kiekstud].pavard;
+        int a;
+        for (int i = 0; i < kieknd; i++)
+        {
+            in >> a;
+            stud[kiekstud].nd.push_back(a);
+        }
+        in >> stud[kiekstud].egz;
+        kiekstud++;
+    }
+    for (int i = 0; i < kiekstud; i++)
+    {
+        cout << stud[i].vard << " " << stud[i].pavard << " ";
+        for (int j = 0; j < kieknd; j++)
+        {
+            cout << stud[i].nd[j] << " ";
+        }
+        cout << stud[i].egz << endl;
     }
 }
+
+/*void isvestis(vector <studentas> stud)
+{
+    cout << "|"<< left << setw(20) << "Vardas" << "|" << left << setw(20) << "Pavarde" << "|" << left << setw(20) << "Galutinis (Vid.)"<< "|" << left << setw(20) << "Galutinis (Med.)" << endl;
+    for (int i=0;i<stud.size();i++)
+    {
+        cout << "|"<< left << setw(20) << stud[i].vard << "|" << left << setw(20) << stud[i].pavard << "|" << left << setw(20) << fixed << setprecision(2) << stud[i].gal<< "|" << left << setw(20) << fixed << setprecision(2) << stud[i].galmed<< endl;
+    }
+}*/
 
 int main()
 {
     srand(time(0));
-    studentas *stud = new studentas[2];
-    int i=0;
-    ivestis(stud, i);
-    isvestis(stud, i);
+    vector <studentas> stud;
+    ivestis(stud);
+    //isvestis(stud);
     return 0;
 }
