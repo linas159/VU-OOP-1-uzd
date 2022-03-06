@@ -10,11 +10,19 @@ int main()
     if (ar == 't' || ar == 'T')
     {
         ivestisranka(stud);
+        isvestis(stud);
     }
     else
     {
-        ivestis(stud);
+        try {
+            exists_test("kursiokai.txt");
+            ivestis(stud);
+            isvestis(stud);
+        }
+        catch (const char* msg) {
+            cout << msg << endl;
+        }
     }
-    isvestis(stud);
+    
     return 0;
 }

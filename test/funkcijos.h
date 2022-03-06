@@ -1,5 +1,16 @@
 #include "struct.h"
 
+void exists_test(const string& name)
+{
+    ifstream file(name);
+    if (!file)
+    {
+        file.close();
+        throw "Failas neegzistuoja";
+    }
+    file.close();
+}
+
 void ivestisranka(vector <studentas>& stud)
 {
     int i = 0;
