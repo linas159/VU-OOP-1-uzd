@@ -25,7 +25,7 @@
     </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="funkcijos.h">
+    <ClInclude Include="funkcijos.cpp">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="struct.h">

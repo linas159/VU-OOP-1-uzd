@@ -1,27 +1,27 @@
 ﻿  test.cpp
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(63,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(67,42): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(63,73): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(67,42): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(73,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(74,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(136,79): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(140,45): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(73,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(74,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(136,79): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(140,45): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(164,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(165,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(219,87): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(223,47): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(164,37): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(165,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(219,87): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(223,47): warning C4244: '=': conversion from '_Ty' to 'float', possible loss of data
           with
           [
               _Ty=int
           ]
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(229,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.h(230,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(229,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(230,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(5,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   test.vcxproj -> C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\x64\Debug\test.exe

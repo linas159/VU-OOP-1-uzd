@@ -145,7 +145,7 @@
     <Text Include="kursiokai.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="funkcijos.h" />
+    <ClInclude Include="funkcijos.cpp" />
     <ClInclude Include="struct.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

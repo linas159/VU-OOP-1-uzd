@@ -13,3 +13,9 @@ struct studentas
     float gal;
     float galmed;
 };
+void exists_test(const string& name);
+void ivestisranka(vector <studentas>& stud);
+int kiekpazymiu();
+void ivestis(vector <studentas>& stud);
+bool palyginimas(studentas& a, studentas& b);
+void isvestis(vector <studentas> stud);
