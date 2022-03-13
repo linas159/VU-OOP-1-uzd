@@ -30,3 +30,8 @@
 *.exe
 *.out
 *.app
+/.vs
+
+x64/
+/test/kursiokai10000000.txt
+/test/kursiokai1000000.txt
