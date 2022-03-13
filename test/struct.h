@@ -1,6 +1,8 @@
 #include <bits/stdc++.h>
+#include <chrono>
 
 using namespace std;
+using namespace std::chrono;
 
 ifstream in("kursiokai.txt");
 
@@ -22,4 +24,6 @@ void ivestis(vector <studentas>& stud);
 bool palyginimas(studentas& a, studentas& b);
 void isvestis(vector <studentas> stud);
 void failugeneracija(int kieknd);
-void failgen(int kieknd, int kiekstud, stringstream& buffer);
+void failgen(string& out1, int kieknd, int kiekstud);
+void nendartiolaiifaila(string out1, string in1, int kieknd, int kiekstud);
+void kietiakaiifaila(string out1, string in1, int kieknd, int kiekstud);

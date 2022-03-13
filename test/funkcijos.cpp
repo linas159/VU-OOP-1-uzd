@@ -274,43 +274,94 @@ void isvestis(vector <studentas> stud)
 
 void failugeneracija(int kieknd)
 {
-    ofstream out1("kursiokai1000.txt");
-    ofstream out2("kursiokai10000.txt");
-    ofstream out3("kursiokai100000.txt");
-    ofstream out4("kursiokai1000000.txt");
-    ofstream out5("kursiokai10000000.txt");
+    string out1="kursiokai1000.txt";
+    string out2="kursiokai10000.txt";
+    string out3="kursiokai100000.txt";
+    string out4="kursiokai1000000.txt";
+    string out5="kursiokai10000000.txt";
+    string nin, kin;
 
-    stringstream buffer;
-    int kiekstud;
+    auto pradzia = high_resolution_clock::now();
+    failgen(out1, kieknd, 1000); //1000
+    auto pradzianen = high_resolution_clock::now();
+    nin="nendartiolai1000.txt";
+    nendartiolaiifaila(out1,nin,kieknd,1000);
+    kin="kietiakai1000.txt";
+    kietiakaiifaila(out1,kin, kieknd, 1000);
+    auto pabaigakiet = high_resolution_clock::now();
+    duration<double> diff = pabaigakiet - pradzianen;
+    cout<<"1000 irasimas i abu failus uztruko: " << diff.count() << endl;
+    auto pabaiga = high_resolution_clock::now();
+    diff = pabaiga - pradzia;
+    cout << endl << "1000 isviso uztruko: " << diff.count() << endl << endl;
+    system("Pause");
 
-    failgen(kieknd, 1000, buffer);
-    out1 << buffer.str();
-    buffer.str("");
-    out1.close();
+    pradzia = high_resolution_clock::now();
+    failgen(out2, kieknd, 10000); //10000
+    pradzianen = high_resolution_clock::now();
+    nin="nendartiolai10000.txt";
+    nendartiolaiifaila(out2, nin, kieknd, 10000);
+    kin="kietiakai10000.txt";
+    kietiakaiifaila(out2, kin, kieknd, 10000);
+    pabaigakiet = high_resolution_clock::now();
+    diff = pabaigakiet - pradzianen;
+    cout << "10000 irasimas i abu failus uztruko: " << diff.count() << endl;
+    pabaiga = high_resolution_clock::now();
+    diff = pabaiga - pradzia;
+    cout << endl << "10000 isviso uztruko: " << diff.count() << endl << endl;
+    system("Pause");
 
-    failgen(kieknd, 10000, buffer);
-    out2 << buffer.str();
-    buffer.str("");
-    out2.close();
+    pradzia = high_resolution_clock::now();
+    failgen(out3, kieknd, 100000);//100000
+    pradzianen = high_resolution_clock::now();
+    nin="nendartiolai100000.txt";
+    nendartiolaiifaila(out3, nin, kieknd, 100000);
+    kin="kietiakai100000.txt";
+    kietiakaiifaila(out3, kin, kieknd, 100000);
+    pabaigakiet = high_resolution_clock::now();
+    diff = pabaigakiet - pradzianen;
+    cout << "100000 irasimas i abu failus uztruko: " << diff.count() << endl;
+    pabaiga = high_resolution_clock::now();
+    diff = pabaiga - pradzia;
+    cout << endl << "100000 isviso uztruko: " << diff.count() << endl << endl;
+    system("Pause");
 
-    failgen(kieknd, 100000, buffer);
-    out3 << buffer.str();
-    buffer.str("");
-    out3.close();
+    pradzia = high_resolution_clock::now();
+    failgen(out4, kieknd, 1000000);//1000000
+    pradzianen = high_resolution_clock::now();
+    nin="nendartiolai1000000.txt";
+    nendartiolaiifaila(out4, nin, kieknd, 1000000);
+    kin="kietiakai1000000.txt";
+    kietiakaiifaila(out4, kin, kieknd, 1000000);
+    pabaigakiet = high_resolution_clock::now();
+    diff = pabaigakiet - pradzianen;
+    cout << "1000000 irasimas i abu failus uztruko: " << diff.count() << endl;
+    pabaiga = high_resolution_clock::now();
+    diff = pabaiga - pradzia;
+    cout <<endl<< "1000000 isviso uztruko: " << diff.count() << endl << endl;
+    system("Pause");
 
-    failgen(kieknd, 1000000, buffer);
-    out4 << buffer.str();
-    buffer.str("");
-    out4.close();
-
-    failgen(kieknd, 10000000, buffer);
-    out5 << buffer.str();
-    buffer.str("");
-    out5.close();
+    pradzia = high_resolution_clock::now();
+    failgen(out5, kieknd, 10000000);//10000000
+    pradzianen = high_resolution_clock::now();
+    nin="nendartiolai10000000.txt";
+    nendartiolaiifaila(out5, nin, kieknd, 10000000);
+    kin="kietiakai10000000.txt";
+    kietiakaiifaila(out5, kin, kieknd, 10000000);
+    pabaigakiet = high_resolution_clock::now();
+    diff = pabaigakiet - pradzianen;
+    cout << "10000000 irasimas i abu failus uztruko: " << diff.count() << endl;
+    pabaiga = high_resolution_clock::now();
+    diff = pabaiga - pradzia;
+    cout << endl << "10000000 isviso uztruko: " << diff.count() << endl << endl;
+    system("Pause");
 }
 
-void failgen(int kieknd, int kiekstud, stringstream &buffer)
+void failgen(string &out1,int kieknd, int kiekstud)
 {
+    auto pradzia = high_resolution_clock::now();
+    ofstream out(out1.c_str());
+    stringstream buffer;
     string vardas, pavarde;
     for (int i = 1; i <= kiekstud; i++)
     {
@@ -325,4 +376,78 @@ void failgen(int kieknd, int kiekstud, stringstream &buffer)
         }
         buffer << left << setw(20) << rand() % 10 + 1 << endl;
     }
+    out << buffer.str();
+    buffer.str("");
+    out.close();
+    auto pabaiga = high_resolution_clock::now();
+    duration<double> diff = pabaiga - pradzia;
+    cout << kiekstud << " generavimas i faila: " << diff.count() << endl;
+}
+
+void nendartiolaiifaila(string out1, string in1, int kieknd, int kiekstud)
+{
+    auto pradzia = high_resolution_clock::now();
+    ifstream in (out1.c_str());
+    ofstream out(in1.c_str());
+    stringstream buffer;
+    string vard, pavard;
+    int vid = 0, nd, egz;
+    float gal;
+    for (int i = 0; i < kiekstud; i++)
+    {
+        in >> vard >> pavard;
+        for (int j = 0; j < kieknd; j++)
+        {
+            in >> nd;
+            vid += nd;
+        }
+        in >> egz;
+        gal = vid / kieknd * 0.4 + egz * 0.6;
+        vid = 0;
+        if (gal < 5.0)
+        {
+            buffer << left << setw(20) << vard << " " << left << setw(20) << pavard << " " << left << setw(20) << fixed << setprecision(2)<< gal << endl;
+        }
+    }
+    out << buffer.str();
+    buffer.str("");
+    out.close();
+    in.close();
+    auto pabaiga = high_resolution_clock::now();
+    duration<double> diff = pabaiga - pradzia;
+    cout <<kiekstud<< " nendartiolai i faila: " << diff.count() << endl;
+}
+
+void kietiakaiifaila(string out1, string in1, int kieknd, int kiekstud)
+{
+    auto pradzia = high_resolution_clock::now();
+    ifstream in(out1.c_str());
+    ofstream out(in1.c_str());
+    stringstream buffer;
+    string vard, pavard;
+    int vid = 0, nd, egz;
+    float gal;
+    for (int i = 0; i < kiekstud; i++)
+    {
+        in >> vard >> pavard;
+        for (int j = 0; j < kieknd; j++)
+        {
+            in >> nd;
+            vid += nd;
+        }
+        in >> egz;
+        gal = vid / kieknd * 0.4 + egz * 0.6;
+        vid = 0;
+        if (gal >= 5.0)
+        {
+            buffer << left << setw(20) << vard << " " << left << setw(20) << pavard << " " << left << setw(20) << fixed << setprecision(2) << gal << endl;
+        }
+    }
+    out << buffer.str();
+    buffer.str("");
+    out.close();
+    in.close();
+    auto pabaiga = high_resolution_clock::now();
+    duration<double> diff = pabaiga - pradzia;
+    cout << kiekstud << " kietiakai i faila: " << diff.count() << endl;
 }

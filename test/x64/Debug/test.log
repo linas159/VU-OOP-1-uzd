@@ -23,5 +23,7 @@ C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\
           ]
 C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(241,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(242,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(405,34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\funkcijos.cpp(439,34): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\test\test.cpp(5,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   test.vcxproj -> C:\Users\linas\OneDrive\Desktop\Objektinis programavimas\Pirma uzduotis vs\x64\Debug\test.exe
