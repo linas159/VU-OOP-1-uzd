@@ -11,6 +11,18 @@ void exists_test(const string& name)
     file.close();
 }
 
+void skaicius(int& a) //funkcija neleidzianti ivesti raides ten kur reikia skaiciaus
+{
+    cin >> a;
+    while (!cin)
+    {
+        cin.clear(); // reset failbit
+        cin.ignore(numeric_limits<streamsize>::max(), '\n'); //praleidziame neteisinga ivesti
+        cout << "Prasome ivesti skaiciu: ";
+        cin >> a;
+    }
+}
+
 void ivestisranka(vector <studentas>& stud)
 {
     int i = 0;
@@ -258,4 +270,59 @@ void isvestis(vector <studentas> stud)
     }
     cout << my_buffer.str();
     my_buffer.clear();
+}
+
+void failugeneracija(int kieknd)
+{
+    ofstream out1("kursiokai1000.txt");
+    ofstream out2("kursiokai10000.txt");
+    ofstream out3("kursiokai100000.txt");
+    ofstream out4("kursiokai1000000.txt");
+    ofstream out5("kursiokai10000000.txt");
+
+    stringstream buffer;
+    int kiekstud;
+
+    failgen(kieknd, 1000, buffer);
+    out1 << buffer.str();
+    buffer.str("");
+    out1.close();
+
+    failgen(kieknd, 10000, buffer);
+    out2 << buffer.str();
+    buffer.str("");
+    out2.close();
+
+    failgen(kieknd, 100000, buffer);
+    out3 << buffer.str();
+    buffer.str("");
+    out3.close();
+
+    failgen(kieknd, 1000000, buffer);
+    out4 << buffer.str();
+    buffer.str("");
+    out4.close();
+
+    failgen(kieknd, 10000000, buffer);
+    out5 << buffer.str();
+    buffer.str("");
+    out5.close();
+}
+
+void failgen(int kieknd, int kiekstud, stringstream &buffer)
+{
+    string vardas, pavarde;
+    for (int i = 1; i <= kiekstud; i++)
+    {
+        vardas = "Vardas";
+        pavarde = "Pavarde";
+        vardas = vardas + std::to_string(i);
+        pavarde = pavarde + std::to_string(i);
+        buffer << left << setw(20) << vardas << " " << left << setw(20) << pavarde << " ";
+        for (int j = 0; j < kieknd; j++)
+        {
+            buffer << left << setw(20) << rand() % 10 + 1 << " ";
+        }
+        buffer << left << setw(20) << rand() % 10 + 1 << endl;
+    }
 }

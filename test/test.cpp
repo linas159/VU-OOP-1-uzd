@@ -4,25 +4,36 @@ int main()
 {
     srand(time(0));
     vector <studentas> stud;
-    cout << "Ar norite duomenis ivesti ranka? (T/N)" << endl;
     char ar;
+    cout << "Ar norite sugeneruoti naujus studento failus (T/N)" << endl;
     cin >> ar;
     if (ar == 't' || ar == 'T')
     {
-        ivestisranka(stud);
-        isvestis(stud);
+        cout << "Kiek studentas tures pazymiu" << endl;
+        int kieknd;
+        skaicius(kieknd);
+        failugeneracija(kieknd);
     }
     else
     {
-        try {
-            exists_test("kursiokai.txt");
-            ivestis(stud);
+        cout << "Ar norite duomenis ivesti ranka? (T/N)" << endl;
+        cin >> ar;
+        if (ar == 't' || ar == 'T')
+        {
+            ivestisranka(stud);
             isvestis(stud);
         }
-        catch (const char* msg) {
-            cout << msg << endl;
+        else
+        {
+            try {
+                exists_test("kursiokai.txt");
+                ivestis(stud);
+                isvestis(stud);
+            }
+            catch (const char* msg) {
+                cout << msg << endl;
+            }
         }
     }
-    
     return 0;
 }
