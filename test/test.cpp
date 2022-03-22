@@ -5,7 +5,7 @@ int main()
     srand(time(0));
     vector <studentas> stud;
     char ar;
-    cout << "Ar norite sugeneruoti naujus studento failus (T/N)" << endl;
+    cout << "Ar norite sugeneruoti naujus studento failus? (T/N)" << endl;
     cin >> ar;
     if (ar == 't' || ar == 'T')
     {
@@ -16,22 +16,35 @@ int main()
     }
     else
     {
-        cout << "Ar norite duomenis ivesti ranka? (T/N)" << endl;
+        cout << "Ar turite jau sugeneruotus studentu failus? (T/N)" << endl;
         cin >> ar;
         if (ar == 't' || ar == 'T')
         {
-            ivestisranka(stud);
-            isvestis(stud);
+            greicioanalize(1000);
+            greicioanalize(10000);
+            greicioanalize(100000);
+            greicioanalize(1000000);
+            greicioanalize(10000000);
         }
         else
         {
-            try {
-                exists_test("kursiokai.txt");
-                ivestis(stud);
+            cout << "Ar norite duomenis ivesti ranka? (T/N)" << endl;
+            cin >> ar;
+            if (ar == 't' || ar == 'T')
+            {
+                ivestisranka(stud);
                 isvestis(stud);
             }
-            catch (const char* msg) {
-                cout << msg << endl;
+            else
+            {
+                try {
+                    exists_test("kursiokai.txt");
+                    ivestis(stud);
+                    isvestis(stud);
+                }
+                catch (const char* msg) {
+                    cout << msg << endl;
+                }
             }
         }
     }

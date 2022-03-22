@@ -274,101 +274,22 @@ void isvestis(vector <studentas> stud)
 
 void failugeneracija(int kieknd)
 {
-    string out1="kursiokai1000.txt";
-    string out2="kursiokai10000.txt";
-    string out3="kursiokai100000.txt";
-    string out4="kursiokai1000000.txt";
-    string out5="kursiokai10000000.txt";
-    string nin, kin;
-
-    auto pradzia = high_resolution_clock::now();
-    failgen(out1, kieknd, 1000); //1000
-    auto pradzianen = high_resolution_clock::now();
-    nin="nendartiolai1000.txt";
-    nendartiolaiifaila(out1,nin,kieknd,1000);
-    kin="kietiakai1000.txt";
-    kietiakaiifaila(out1,kin, kieknd, 1000);
-    auto pabaigakiet = high_resolution_clock::now();
-    duration<double> diff = pabaigakiet - pradzianen;
-    cout<<"1000 irasimas i abu failus uztruko: " << diff.count() << endl;
-    auto pabaiga = high_resolution_clock::now();
-    diff = pabaiga - pradzia;
-    cout << endl << "1000 isviso uztruko: " << diff.count() << endl << endl;
-    system("Pause");
-
-    pradzia = high_resolution_clock::now();
-    failgen(out2, kieknd, 10000); //10000
-    pradzianen = high_resolution_clock::now();
-    nin="nendartiolai10000.txt";
-    nendartiolaiifaila(out2, nin, kieknd, 10000);
-    kin="kietiakai10000.txt";
-    kietiakaiifaila(out2, kin, kieknd, 10000);
-    pabaigakiet = high_resolution_clock::now();
-    diff = pabaigakiet - pradzianen;
-    cout << "10000 irasimas i abu failus uztruko: " << diff.count() << endl;
-    pabaiga = high_resolution_clock::now();
-    diff = pabaiga - pradzia;
-    cout << endl << "10000 isviso uztruko: " << diff.count() << endl << endl;
-    system("Pause");
-
-    pradzia = high_resolution_clock::now();
-    failgen(out3, kieknd, 100000);//100000
-    pradzianen = high_resolution_clock::now();
-    nin="nendartiolai100000.txt";
-    nendartiolaiifaila(out3, nin, kieknd, 100000);
-    kin="kietiakai100000.txt";
-    kietiakaiifaila(out3, kin, kieknd, 100000);
-    pabaigakiet = high_resolution_clock::now();
-    diff = pabaigakiet - pradzianen;
-    cout << "100000 irasimas i abu failus uztruko: " << diff.count() << endl;
-    pabaiga = high_resolution_clock::now();
-    diff = pabaiga - pradzia;
-    cout << endl << "100000 isviso uztruko: " << diff.count() << endl << endl;
-    system("Pause");
-
-    pradzia = high_resolution_clock::now();
-    failgen(out4, kieknd, 1000000);//1000000
-    pradzianen = high_resolution_clock::now();
-    nin="nendartiolai1000000.txt";
-    nendartiolaiifaila(out4, nin, kieknd, 1000000);
-    kin="kietiakai1000000.txt";
-    kietiakaiifaila(out4, kin, kieknd, 1000000);
-    pabaigakiet = high_resolution_clock::now();
-    diff = pabaigakiet - pradzianen;
-    cout << "1000000 irasimas i abu failus uztruko: " << diff.count() << endl;
-    pabaiga = high_resolution_clock::now();
-    diff = pabaiga - pradzia;
-    cout <<endl<< "1000000 isviso uztruko: " << diff.count() << endl << endl;
-    system("Pause");
-
-    pradzia = high_resolution_clock::now();
-    failgen(out5, kieknd, 10000000);//10000000
-    pradzianen = high_resolution_clock::now();
-    nin="nendartiolai10000000.txt";
-    nendartiolaiifaila(out5, nin, kieknd, 10000000);
-    kin="kietiakai10000000.txt";
-    kietiakaiifaila(out5, kin, kieknd, 10000000);
-    pabaigakiet = high_resolution_clock::now();
-    diff = pabaigakiet - pradzianen;
-    cout << "10000000 irasimas i abu failus uztruko: " << diff.count() << endl;
-    pabaiga = high_resolution_clock::now();
-    diff = pabaiga - pradzia;
-    cout << endl << "10000000 isviso uztruko: " << diff.count() << endl << endl;
-    system("Pause");
+    failgen(kieknd, 1000);
+    failgen(kieknd, 10000);
+    failgen(kieknd, 100000);
+    failgen(kieknd, 1000000);
+    failgen(kieknd, 10000000);
 }
 
-void failgen(string &out1,int kieknd, int kiekstud)
+void failgen(int kieknd, int kiekstud)
 {
     auto pradzia = high_resolution_clock::now();
-    ofstream out(out1.c_str());
     stringstream buffer;
     string vardas, pavarde;
     for (int i = 1; i <= kiekstud; i++)
     {
-        vardas = "Vardas";
-        pavarde = "Pavarde";
-        vardas = vardas + std::to_string(i);
-        pavarde = pavarde + std::to_string(i);
+        vardas = "Vardas" + to_string(i);
+        pavarde = "Pavarde" + to_string(i);
         buffer << left << setw(20) << vardas << " " << left << setw(20) << pavarde << " ";
         for (int j = 0; j < kieknd; j++)
         {
@@ -376,78 +297,100 @@ void failgen(string &out1,int kieknd, int kiekstud)
         }
         buffer << left << setw(20) << rand() % 10 + 1 << endl;
     }
+    string out1 = "kursiokai" + to_string(kiekstud) + ".txt";
+    ofstream out(out1);
+    out << left << setw(20) << "Vardas" << " " << left << setw(20) << "Pavarde" << " ";
+    for (int j = 1; j <= kieknd; j++)
+    {
+        out << left << setw(20) << "ND" + to_string(j) << " ";
+    }
+    out << left << setw(20) <<"Egz." << endl;
     out << buffer.str();
-    buffer.str("");
+    
     out.close();
-    auto pabaiga = high_resolution_clock::now();
-    duration<double> diff = pabaiga - pradzia;
+    buffer.str("");
+    duration<double> diff = high_resolution_clock::now() - pradzia;
     cout << kiekstud << " generavimas i faila: " << diff.count() << endl;
+    system("Pause");
 }
 
-void nendartiolaiifaila(string out1, string in1, int kieknd, int kiekstud)
+void greicioanalize(int kiekstud)
 {
+    ifstream in("kursiokai" + to_string(kiekstud) + ".txt");
     auto pradzia = high_resolution_clock::now();
-    ifstream in (out1.c_str());
-    ofstream out(in1.c_str());
-    stringstream buffer;
-    string vard, pavard;
-    int vid = 0, nd, egz;
-    float gal;
+    int kieknd = 0;
+    string zod;
+    while (true)
+    {
+        in >> zod;
+        kieknd++;
+        if (zod == "Egz.")
+        {
+            break;
+        }
+    }
+    kieknd += -3;
+    vector <studentas> stud;
+    int a, vid=0;
     for (int i = 0; i < kiekstud; i++)
     {
-        in >> vard >> pavard;
+        stud.push_back(studentas());
+        in >> stud[i].vard >> stud[i].pavard;
         for (int j = 0; j < kieknd; j++)
         {
-            in >> nd;
-            vid += nd;
+            in >> a;
+            vid += a;
         }
-        in >> egz;
-        gal = vid / kieknd * 0.4 + egz * 0.6;
+        in >> stud[i].egz;
+        stud[i].gal = vid / kieknd * 0.4 + stud[i].egz * 0.6;
         vid = 0;
-        if (gal < 5.0)
+    }
+    in.close();
+    duration<double> diff = high_resolution_clock::now() - pradzia;
+    cout<< kiekstud<<" nuskaitymas uztruko: " << diff.count() << endl;
+    nendartiolaiifaila(kieknd, kiekstud, stud);
+    kietiakaiifaila(kieknd, kiekstud, stud);
+    stud.clear();
+    diff = high_resolution_clock::now() - pradzia;
+    cout << endl<< kiekstud << " visas testo laikas: " << diff.count() << endl << endl;
+    system("Pause");
+}
+
+void nendartiolaiifaila(int kieknd, int kiekstud, vector <studentas> stud)
+{
+    auto pradzia = high_resolution_clock::now();
+    ofstream out("nendartiolai"+to_string(kiekstud)+".txt");
+    stringstream buffer;
+    for (int i = 0; i < kiekstud; i++)
+    {
+        if (stud[i].gal < 5.0)
         {
-            buffer << left << setw(20) << vard << " " << left << setw(20) << pavard << " " << left << setw(20) << fixed << setprecision(2)<< gal << endl;
+            buffer << left << setw(20) << stud[i].vard << " " << left << setw(20) << stud[i].pavard << " " << left << setw(20) << fixed << setprecision(2)<< stud[i].gal << endl;
         }
     }
     out << buffer.str();
     buffer.str("");
     out.close();
-    in.close();
-    auto pabaiga = high_resolution_clock::now();
-    duration<double> diff = pabaiga - pradzia;
-    cout <<kiekstud<< " nendartiolai i faila: " << diff.count() << endl;
+    duration<double> diff = high_resolution_clock::now() - pradzia;
+    cout <<kiekstud<< " nendartiolu surusiavimas ir isvedimas i faila: " << diff.count() << endl;
 }
 
-void kietiakaiifaila(string out1, string in1, int kieknd, int kiekstud)
+void kietiakaiifaila(int kieknd, int kiekstud, vector <studentas> stud)
 {
     auto pradzia = high_resolution_clock::now();
-    ifstream in(out1.c_str());
-    ofstream out(in1.c_str());
+    ofstream out("kietiakai" + to_string(kiekstud) + ".txt");
     stringstream buffer;
-    string vard, pavard;
-    int vid = 0, nd, egz;
-    float gal;
     for (int i = 0; i < kiekstud; i++)
     {
-        in >> vard >> pavard;
-        for (int j = 0; j < kieknd; j++)
+        if (stud[i].gal >= 5.0)
         {
-            in >> nd;
-            vid += nd;
-        }
-        in >> egz;
-        gal = vid / kieknd * 0.4 + egz * 0.6;
-        vid = 0;
-        if (gal >= 5.0)
-        {
-            buffer << left << setw(20) << vard << " " << left << setw(20) << pavard << " " << left << setw(20) << fixed << setprecision(2) << gal << endl;
+            buffer << left << setw(20) << stud[i].vard << " " << left << setw(20) << stud[i].pavard << " " << left << setw(20) << fixed << setprecision(2) << stud[i].gal << endl;
         }
     }
     out << buffer.str();
     buffer.str("");
     out.close();
-    in.close();
-    auto pabaiga = high_resolution_clock::now();
-    duration<double> diff = pabaiga - pradzia;
-    cout << kiekstud << " kietiakai i faila: " << diff.count() << endl;
+    duration<double> diff = high_resolution_clock::now() - pradzia;
+    cout << kiekstud << " kietiakai surusiavimas ir isvedimas i faila: " << diff.count() << endl;
 }
+
