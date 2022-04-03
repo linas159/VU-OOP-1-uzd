@@ -6,6 +6,7 @@ using namespace std::chrono;
 
 ifstream in("kursiokai.txt");
 
+
 struct studentas
 {
     string vard;
@@ -25,6 +26,15 @@ bool palyginimas(studentas& a, studentas& b);
 void isvestis(vector <studentas> stud);
 void failugeneracija(int kieknd);
 void failgen(int kieknd, int kiekstud);
-void greicioanalize(int kiekstud);
-void nendartiolaiifaila(int kieknd, int kiekstud, vector <studentas> stud);
-void kietiakaiifaila(int kieknd, int kiekstud, vector <studentas> stud);
+
+void greicioanalizevector(int kiekstud);
+void rusiavimasvector(vector <studentas> stud, vector <studentas>& nend, vector <studentas>& kiet, int kiekstud);
+
+void greicioanalizelist(int kiekstud);
+void rusiavimaslist(list <studentas> stud, list <studentas>& nend, list <studentas>& kiet, int kiekstud);
+
+void greicioanalizedeque(int kiekstud);
+void rusiavimasdeque(deque <studentas> stud, deque <studentas>& nend, deque <studentas>& kiet, int kiekstud);
+
+void nendartiolaiifaila(int kieknd, vector <studentas> nend, int kiekstud);
+void kietiakaiifaila(int kieknd, vector <studentas> kiet, int kiekstud);

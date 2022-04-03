@@ -274,11 +274,10 @@ void isvestis(vector <studentas> stud)
 
 void failugeneracija(int kieknd)
 {
-    failgen(kieknd, 1000);
-    failgen(kieknd, 10000);
-    failgen(kieknd, 100000);
-    failgen(kieknd, 1000000);
-    failgen(kieknd, 10000000);
+    for (int i = 1000; i <= 10000000; i = i * 10)
+    {
+        failgen(kieknd, i);
+    }
 }
 
 void failgen(int kieknd, int kiekstud)
@@ -314,7 +313,7 @@ void failgen(int kieknd, int kiekstud)
     system("Pause");
 }
 
-void greicioanalize(int kiekstud)
+void greicioanalizevector(int kiekstud)
 {
     ifstream in("kursiokai" + to_string(kiekstud) + ".txt");
     auto pradzia = high_resolution_clock::now();
@@ -330,8 +329,8 @@ void greicioanalize(int kiekstud)
         }
     }
     kieknd += -3;
-    vector <studentas> stud;
     int a, vid=0;
+    vector <studentas> stud;
     for (int i = 0; i < kiekstud; i++)
     {
         stud.push_back(studentas());
@@ -345,52 +344,210 @@ void greicioanalize(int kiekstud)
         stud[i].gal = vid / kieknd * 0.4 + stud[i].egz * 0.6;
         vid = 0;
     }
+    stud.shrink_to_fit();
     in.close();
     duration<double> diff = high_resolution_clock::now() - pradzia;
     cout<< kiekstud<<" nuskaitymas uztruko: " << diff.count() << endl;
-    nendartiolaiifaila(kieknd, kiekstud, stud);
-    kietiakaiifaila(kieknd, kiekstud, stud);
+
+    vector <studentas> nend, kiet;
+    auto rus = high_resolution_clock::now();
+    rusiavimasvector(stud, nend, kiet, kiekstud);
     stud.clear();
+    diff = high_resolution_clock::now() - rus;
+    cout << kiekstud << " rusiavimas i dvi kategorijas: " << diff.count() << endl;
+    
+
+    nendartiolaiifaila(kieknd, nend, kiekstud);
+    kietiakaiifaila(kieknd, kiet, kiekstud);
+    
     diff = high_resolution_clock::now() - pradzia;
     cout << endl<< kiekstud << " visas testo laikas: " << diff.count() << endl << endl;
     system("Pause");
 }
 
-void nendartiolaiifaila(int kieknd, int kiekstud, vector <studentas> stud)
+void rusiavimasvector (vector <studentas> stud, vector <studentas> &nend, vector <studentas> &kiet, int kiekstud)
+{
+    for (int i = 0; i < stud.size(); i++)//(auto &temp:stud)
+    {
+        if (stud.at(i).gal < 5.0)
+        {
+            nend.push_back(stud[i]);
+        }
+        else
+        {
+            kiet.push_back(stud[i]);
+        }
+    }
+    stud.clear();
+    nend.shrink_to_fit();
+    kiet.shrink_to_fit();
+}
+
+void greicioanalizelist(int kiekstud)
+{
+    ifstream in("kursiokai" + to_string(kiekstud) + ".txt");
+    auto pradzia = high_resolution_clock::now();
+    int kieknd = 0;
+    string zod;
+    while (true)
+    {
+        in >> zod;
+        kieknd++;
+        if (zod == "Egz.")
+        {
+            break;
+        }
+    }
+    kieknd += -3;
+    int a, vid = 0;
+    list <studentas> stud;
+    studentas s;
+    for (int i = 0; i < kiekstud; i++)
+    {
+        in >> s.vard >> s.pavard;
+        for (int j = 0; j < kieknd; j++)
+        {
+            in >> a;
+            vid += a;
+        }
+        in >> s.egz;
+        s.gal = vid / kieknd * 0.4 + s.egz * 0.6;
+        vid = 0;
+        stud.push_back(s);
+    }
+    in.close();
+    duration<double> diff = high_resolution_clock::now() - pradzia;
+    cout << kiekstud << " nuskaitymas uztruko: " << diff.count() << endl;
+
+    list <studentas> nend, kiet;
+    auto rus = high_resolution_clock::now();
+    rusiavimaslist(stud, nend, kiet, kiekstud);
+    diff = high_resolution_clock::now() - rus;
+    cout << kiekstud << " rusiavimas i dvi kategorijas: " << diff.count() << endl;
+    stud.clear();
+    kiet.clear();
+    nend.clear();
+
+    diff = high_resolution_clock::now() - pradzia;
+    cout << endl << kiekstud << " visas testo laikas: " << diff.count() << endl << endl;
+    system("Pause");
+}
+
+void rusiavimaslist (list <studentas> stud, list <studentas>& nend, list <studentas>& kiet, int kiekstud)
+{
+    for (int i = 0; i < stud.size(); i++)//(auto &temp:stud)
+    {
+        studentas s;
+        s = stud.front();
+        if (s.gal < 5.0)
+        {
+            nend.push_back(s);
+        }
+        else
+        {
+            kiet.push_back(s);
+        }
+    }
+    stud.clear();
+}
+
+void greicioanalizedeque(int kiekstud)
+{
+    ifstream in("kursiokai" + to_string(kiekstud) + ".txt");
+    auto pradzia = high_resolution_clock::now();
+    int kieknd = 0;
+    string zod;
+    while (true)
+    {
+        in >> zod;
+        kieknd++;
+        if (zod == "Egz.")
+        {
+            break;
+        }
+    }
+    kieknd += -3;
+    int a, vid = 0;
+    deque <studentas> stud;
+    for (int i = 0; i < kiekstud; i++)
+    {
+        stud.push_back(studentas());
+        in >> stud[i].vard >> stud[i].pavard;
+        for (int j = 0; j < kieknd; j++)
+        {
+            in >> a;
+            vid += a;
+        }
+        in >> stud[i].egz;
+        stud[i].gal = vid / kieknd * 0.4 + stud[i].egz * 0.6;
+        vid = 0;
+    }
+    stud.shrink_to_fit();
+    in.close();
+    duration<double> diff = high_resolution_clock::now() - pradzia;
+    cout << kiekstud << " nuskaitymas uztruko: " << diff.count() << endl;
+
+    deque <studentas> nend, kiet;
+    auto rus = high_resolution_clock::now();
+    rusiavimasdeque(stud, nend, kiet, kiekstud);
+    diff = high_resolution_clock::now() - rus;
+    cout << kiekstud << " rusiavimas i dvi kategorijas: " << diff.count() << endl;
+    stud.clear();
+    kiet.clear();
+    nend.clear();
+
+    diff = high_resolution_clock::now() - pradzia;
+    cout << endl << kiekstud << " visas testo laikas: " << diff.count() << endl << endl;
+    system("Pause");
+}
+
+void rusiavimasdeque(deque <studentas> stud, deque <studentas>& nend, deque <studentas>& kiet, int kiekstud)
+{
+    for (int i = 0; i < stud.size(); i++)//(auto &temp:stud)
+    {
+        if (stud.at(i).gal < 5.0)
+        {
+            nend.push_back(stud[i]);
+        }
+        else
+        {
+            kiet.push_back(stud[i]);
+        }
+    }
+    stud.clear();
+    nend.shrink_to_fit();
+    kiet.shrink_to_fit();
+}
+
+void nendartiolaiifaila(int kieknd, vector <studentas> nend, int kiekstud)
 {
     auto pradzia = high_resolution_clock::now();
     ofstream out("nendartiolai"+to_string(kiekstud)+".txt");
     stringstream buffer;
-    for (int i = 0; i < kiekstud; i++)
+    for (int i = 0; i < nend.size(); i++)
     {
-        if (stud[i].gal < 5.0)
-        {
-            buffer << left << setw(20) << stud[i].vard << " " << left << setw(20) << stud[i].pavard << " " << left << setw(20) << fixed << setprecision(2)<< stud[i].gal << endl;
-        }
+        buffer << left << setw(20) << nend[i].vard << " " << left << setw(20) << nend[i].pavard << " " << left << setw(20) << fixed << setprecision(2)<< nend[i].gal << endl;
     }
     out << buffer.str();
     buffer.str("");
     out.close();
     duration<double> diff = high_resolution_clock::now() - pradzia;
-    cout <<kiekstud<< " nendartiolu surusiavimas ir isvedimas i faila: " << diff.count() << endl;
+    cout <<kiekstud<< " nendartiolu isvedimas i faila: " << diff.count() << endl;
 }
 
-void kietiakaiifaila(int kieknd, int kiekstud, vector <studentas> stud)
+void kietiakaiifaila(int kieknd, vector <studentas> kiet, int kiekstud)
 {
     auto pradzia = high_resolution_clock::now();
     ofstream out("kietiakai" + to_string(kiekstud) + ".txt");
     stringstream buffer;
-    for (int i = 0; i < kiekstud; i++)
+    for (int i = 0; i < kiet.size(); i++)
     {
-        if (stud[i].gal >= 5.0)
-        {
-            buffer << left << setw(20) << stud[i].vard << " " << left << setw(20) << stud[i].pavard << " " << left << setw(20) << fixed << setprecision(2) << stud[i].gal << endl;
-        }
+        buffer << left << setw(20) << kiet[i].vard << " " << left << setw(20) << kiet[i].pavard << " " << left << setw(20) << fixed << setprecision(2) << kiet[i].gal << endl;
     }
     out << buffer.str();
     buffer.str("");
     out.close();
     duration<double> diff = high_resolution_clock::now() - pradzia;
-    cout << kiekstud << " kietiakai surusiavimas ir isvedimas i faila: " << diff.count() << endl;
+    cout << kiekstud << " kietiakai isvedimas i faila: " << diff.count() << endl;
 }
 
