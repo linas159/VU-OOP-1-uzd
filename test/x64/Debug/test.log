@@ -24,7 +24,10 @@ C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(23
 C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(241,40): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(242,43): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(344,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(414,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(482,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(415,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(481,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(581,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(684,36): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\funkcijos.cpp(792,42): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\test\test.cpp(5,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
   test.vcxproj -> C:\Users\User\OneDrive - Vilnius University\Pirma uzduotis\x64\Debug\test.exe

@@ -20,33 +20,71 @@ int main()
         cin >> ar;
         if (ar == 't' || ar == 'T')
         {
-            cout << "Ar norite analizuoti su vector konteineriu? (T/N)" << endl;
+            cout << "Ar norite naudoti 1 strategija?"<<endl;
             cin >> ar;
             if (ar == 't' || ar == 'T')
             {
-                for (int i = 1000; i <= 10000000; i = i * 10)
+                cout << "Ar norite analizuoti su vector konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
                 {
-                    greicioanalizevector(i);
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizevector(i);
+                    }
+                }
+                cout << "Ar norite analizuoti su list konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
+                {
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizelist(i);
+                    }
+                }
+                cout << "Ar norite analizuoti su deque konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
+                {
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizedeque(i);
+                    }
                 }
             }
-            cout << "Ar norite analizuoti su list konteineriu? (T/N)" << endl;
+            cout << "Ar norite naudoti 2 strategija?" << endl;
             cin >> ar;
             if (ar == 't' || ar == 'T')
             {
-                for (int i = 1000; i <= 10000000; i = i * 10)
+                cout << "Ar norite analizuoti su vector konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
                 {
-                    greicioanalizelist(i);
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizevector2(i);
+                    }
+                }
+                cout << "Ar norite analizuoti su list konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
+                {
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizelist2(i);
+                    }
+                }
+                cout << "Ar norite analizuoti su deque konteineriu? (T/N)" << endl;
+                cin >> ar;
+                if (ar == 't' || ar == 'T')
+                {
+                    for (int i = 1000; i <= 10000000; i = i * 10)
+                    {
+                        greicioanalizedeque2(i);
+                    }
                 }
             }
-            cout << "Ar norite analizuoti su deque konteineriu? (T/N)" << endl;
-            cin >> ar;
-            if (ar == 't' || ar == 'T')
-            {
-                for (int i = 1000; i <= 10000000; i = i * 10)
-                {
-                    greicioanalizedeque(i);
-                }
-            }
+            
         }
         else
         {
