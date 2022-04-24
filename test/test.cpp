@@ -1,4 +1,4 @@
-#include "funkcijos.cpp"
+#include "struct.h"
 
 int main()
 {

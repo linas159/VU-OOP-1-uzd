@@ -4,8 +4,6 @@
 using namespace std;
 using namespace std::chrono;
 
-ifstream in("kursiokai.txt");
-
 
 struct studentas
 {

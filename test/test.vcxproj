@@ -143,10 +143,14 @@
   </ItemGroup>
   <ItemGroup>
     <Text Include="kursiokai.txt" />
+    <Text Include="Makefile.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="funkcijos.cpp" />
     <ClInclude Include="struct.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

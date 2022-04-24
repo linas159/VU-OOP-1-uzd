@@ -23,13 +23,21 @@
     <Text Include="kursiokai.txt">
       <Filter>Resource Files</Filter>
     </Text>
+    <Text Include="Makefile.txt">
+      <Filter>Source Files</Filter>
+    </Text>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="funkcijos.cpp">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="struct.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="funkcijos.cpp">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="makefile">
+      <Filter>Source Files</Filter>
+    </None>
   </ItemGroup>
 </Project>

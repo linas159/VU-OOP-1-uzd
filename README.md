@@ -29,3 +29,11 @@ GPU (NVIDIA GeForce RTX 3060 Ti)
 16 RAM
 
 SSD
+
+v1.0:
+
+Programa galima paleisti dviem strategijomis:
+
+1: Skaidymas (rūšiavimas) į du naujus to paties tipo konteinerius.
+
+2: Skaidymas (rūšiavimas) panaudojant tik vieną naują konteinerį.

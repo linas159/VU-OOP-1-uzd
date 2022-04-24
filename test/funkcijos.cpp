@@ -1,5 +1,7 @@
 #include "struct.h"
 
+ifstream in("kursiokai.txt");
+
 void exists_test(const string& name)
 {
     ifstream file(name);
