@@ -39,7 +39,7 @@ Naudojant PIRMA strategija gauti tokie rezultatai:
 
 Vector:
 
-https://cdn.discordapp.com/attachments/940892487365591070/960161247330967602/unknown.png
+![] (https://cdn.discordapp.com/attachments/940892487365591070/960161247330967602/unknown.png)
 
 List:
 
